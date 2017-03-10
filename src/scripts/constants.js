@@ -2,7 +2,11 @@ const defaults = {
   ASSETS_ROOT: '/src/assets/images/',
 
   GAME_X: 1080,
-  GAME_Y: 900,
+  GAME_Y: 700,
+  MENU_WIDTH: 100,
+  MENU_BG_COLOR: '#0f0f0f',
+  TOP_ICONS_HEIGHT: 100,
+  TOP_ICONS_WIDTH: 5040,
 
   ROWS: 5,
   MARGIN: 12,

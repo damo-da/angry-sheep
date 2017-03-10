@@ -1,7 +1,7 @@
 import Sheep from './Sheep';
 
 export default class Player {
-  constructor(side, game){
+  constructor(side, game) {
     this.side = side;
     this.name += this.side;
     this.sheep = [];
@@ -12,32 +12,33 @@ export default class Player {
 
   }
 
-  moveAllSheep(){
+  moveAllSheep() {
     this.sheep.forEach((s) => {
       s.move();
     });
 
   }
 
-  init(){
-    console.log('Initing player');
-
+  init() {
     this.sheep.forEach(s => s.init());
 
     this.render();
 
   }
 
-  render(){
+  render() {
 
   }
 
-  addSheep(s){
+  addSheep(s) {
     this.sheep.push(s);
 
-    if(this.side == 'right'){
-      s.col = 1-s.col;
+    if (this.side == 'right') {
+      s.col = 1 - s.col;
       s.speed = -s.speed;
+      s.col += s.width;
+    } else {
+      s.col -= s.width;
     }
 
     s.init();
@@ -45,7 +46,7 @@ export default class Player {
     return s;
   }
 
-  update(){
+  update() {
     this.sheep.forEach(s => s.move());
 
   }

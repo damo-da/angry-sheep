@@ -1,8 +1,8 @@
 import C from './constants';
 import {getGame} from './game';
 
-export default class Sheep{
-  constructor(index, row){
+export default class Sheep {
+  constructor(index, row) {
     this.index = index;
     this.row = row;
     this.speed = C.SHEEPS[index].SPEED;
@@ -14,7 +14,7 @@ export default class Sheep{
     this.sprite = null;
   }
 
-  move(){
+  move() {
     console.log('moving sheep');
     this.col += this.speed * 0.01;
 
@@ -23,20 +23,22 @@ export default class Sheep{
   }
 
 
-  render(){
+  render() {
     const game = getGame();
+    const posX = C.GAME_X * (this.col - this.width / 2.00);
 
-    if(!this.sprite){
-      this.sprite = game.add.sprite(this.col * C.GAME_X,0,`sheep_${this.index}`);
+    if (!this.sprite) {
+      const posY = this.row * C.SPRITE_HEIGHT + this.row * C.MARGIN;
+      this.sprite = game.add.sprite(posX, posY, `sheep_${this.index}`);
       this.sprite.width = this.width * C.GAME_X;
       this.sprite.height = C.SPRITE_HEIGHT;
-      this.sprite.position.y = this.row * C.SPRITE_HEIGHT + this.row * C.MARGIN;
+    } else {
+      this.sprite.position.x = posX;
     }
 
-    this.sprite.position.x = this.col * C.GAME_X;
   }
 
-  init(){
+  init() {
     console.log('Initing sheep');
 
     this.render();

@@ -32,7 +32,7 @@ export const createGame = (preloadFun=_preloadHook, createFun=_createHook, updat
   _createHook = createFun;
   _updateHook = updateFun;
 
-  game = new Phaser.Game(C.GAME_X, C.GAME_Y, Phaser.AUTO, '', { preload, create, update });
+  game = new Phaser.Game(C.GAME_X+C.MENU_WIDTH*2, C.GAME_Y + C.TOP_ICONS_HEIGHT, Phaser.AUTO, '', { preload, create, update });
 
   return getGame();
 };
