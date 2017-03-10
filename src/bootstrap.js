@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+import game from './scripts';
+
 /** This is how you use the environments variables passed by the webpack.DefinePlugin **/
 
 /**
@@ -30,3 +32,6 @@ if (process.env.NODE_ENV === 'mock') {
 if (process.env.DEVTOOLS && process.env.NODE_ENV !== 'production') {
   console.info(`You're on DEVTOOLS mode, you may have access to tools enhancing developer experience - off to you to choose to disable them in production ...`);
 }
+
+
+game();
