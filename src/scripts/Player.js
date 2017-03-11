@@ -8,6 +8,7 @@ export default class Player {
     this.sheep = [];
     this.mana = C.DEFAULT_MANA;
     this.manaGrowthRate = 0.05; // per frame
+    this.score = 0;
     this.powers = [];
     this._game = game;
 
@@ -60,6 +61,22 @@ export default class Player {
 
   update() {
 
+    this.sheep = this.sheep.filter((s) => {
+      if (s.col <= 0 && this.side == 'right'){
+        this.score += 1;
+
+        s.kill();
+        return false;
+      }else if(s.col >= 1 && this.side == 'left'){
+        this.score += 1;
+
+        s.kill();
+        return false;
+      }
+
+      return true;
+
+    });
     this.sheep.forEach(s => s.move());
 
     this.mana += this.manaGrowthRate;

@@ -40,4 +40,9 @@ export default class Sheep {
   init() {
     this.render();
   }
+
+  kill(){
+    this.sprite.kill();
+
+  }
 }
