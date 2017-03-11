@@ -51,8 +51,6 @@ export default class Player {
 
     s.init();
 
-    this.sheepLastAddedAt = moment();
-
     return s;
   }
 
@@ -60,8 +58,9 @@ export default class Player {
     const now = moment();
     if (now.diff(this.sheepLastAddedAt) < C.SHEEP_ADD_INTERVAL){
       return;
-
     }
+
+    this.sheepLastAddedAt = moment();
 
     const manas = C.SHEEPS[s.index].MANA;
     if (this.mana > manas) {
