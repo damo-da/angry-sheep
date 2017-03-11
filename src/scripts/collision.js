@@ -11,7 +11,7 @@ export function collide(player1, player2) {
       .concat(
         player2.sheep.filter(s => s.row == x).map(s => {s.side = -1; return s;})
       )
-      .sort((x,y) => x.col > y.col);
+      .sort((x,y) => x.col - y.col);
   });
 
   rows.forEach(sheepArray => {
@@ -41,7 +41,7 @@ export function collide(player1, player2) {
     }, []);
 
     result.forEach(group => {
-      const groupSpeed = group.reduce((acc, x) => acc + x.side * x.strength, 0);
+      const groupSpeed = group.reduce((acc, x) => acc + x.side * x.strength, 0) / (1 + group.length/10);
 
       group.forEach(singleSheep => {singleSheep.speed = groupSpeed; });
 
