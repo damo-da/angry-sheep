@@ -6,10 +6,13 @@ export default class Player {
     this.side = side;
     this.name += this.side;
     this.sheep = [];
-    this.mana = 10;
-    this.manaGrowthRate = 1.0; // per second
+    this.mana = C.DEFAULT_MANA;
+    this.manaGrowthRate = 0.05; // per frame
     this.powers = [];
     this._game = game;
+
+
+    this.selectedSheepIndex = 0;
 
   }
 
@@ -47,9 +50,19 @@ export default class Player {
     return s;
   }
 
+  validateAndAddSheep(s){
+    const manas = C.SHEEPS[s.index].MANA;
+    if(this.mana > manas){
+      this.mana -= manas;
+      this.addSheep(s);
+    }
+  }
+
   update() {
 
     this.sheep.forEach(s => s.move());
+
+    this.mana += this.manaGrowthRate;
 
   }
 

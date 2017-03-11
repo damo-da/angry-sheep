@@ -15,7 +15,7 @@ export default class Sheep {
   }
 
   move() {
-    this.col += (this.speed )* 0.01;
+    this.col += (this.speed )* C.SHEEP_MOVE_CONST;
 
     this.render();
 
@@ -24,10 +24,10 @@ export default class Sheep {
 
   render() {
     const game = getGame();
-    const posX = C.GAME_X * (this.col - this.width / 2.00);
+    const posX = C.GAME_X * (this.col - this.width / 2.00) + C.SIDE_MENU.WIDTH;
 
     if (!this.sprite) {
-      const posY = this.row * C.SPRITE_HEIGHT + this.row * C.MARGIN;
+      const posY = C.TOP_MENU.HEIGHT + this.row * C.SPRITE_HEIGHT + this.row * C.MARGIN;
       this.sprite = game.add.sprite(posX, posY, `sheep_${this.index}`);
       this.sprite.width = this.width * C.GAME_X;
       this.sprite.height = C.SPRITE_HEIGHT;
@@ -38,8 +38,6 @@ export default class Sheep {
   }
 
   init() {
-    console.log('Initing sheep');
-
     this.render();
   }
 }

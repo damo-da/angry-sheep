@@ -184,7 +184,9 @@
     "spaced-comment": 0,
     "prefer-const": 0,
     "no-param-reassign": 0,
-    "space-before-keywords": 0
+    "space-before-keywords": 0,
+
+    "indent": 0
   },
   "extends": "airbnb/base"
 }
