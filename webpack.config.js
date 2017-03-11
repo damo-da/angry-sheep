@@ -35,6 +35,7 @@ const STATS = process.env.STATS ? JSON.parse(process.env.STATS) : false; // to o
 const LOCALHOST = process.env.LOCALHOST ? JSON.parse(process.env.LOCALHOST) : true;
 const ASSETS_LIMIT = typeof process.env.ASSETS_LIMIT !== 'undefined' ? parseInt(process.env.ASSETS_LIMIT, 10) : 5000;// limit bellow the assets will be inlines
 const hash = (NODE_ENV === 'production' && DEVTOOLS ? '-devtools' : '') + (NODE_ENV === 'production' ? '-[hash]' : '');
+const PORT = process.env.port || 8080;
 
 /** integrity checks */
 
@@ -100,10 +101,10 @@ if (OPTIMIZE) {
 if (MODE_DEV_SERVER) {
   // webpack-dev-server mode
   if(LOCALHOST) {
-    log.info('webpack', 'Check http://localhost:8080');
+    log.info('webpack', 'Check http://localhost:'+PORT);
   }
   else {
-    log.info('webpack', 'Check http://' + myLocalIp() + ':8080');
+    log.info('webpack', 'Check http://' + myLocalIp() + ':'+PORT);
   }
 }
 else {
@@ -155,7 +156,8 @@ const config = {
   debug: NODE_ENV === 'production' ? false : true,
   devtool: OPTIMIZE ? false : 'sourcemap',
   devServer: {
-    host: LOCALHOST ? 'localhost' : myLocalIp()
+    host: LOCALHOST ? 'localhost' : myLocalIp(),
+    port: PORT
   },
   module: {
     preLoaders: preLoaders,
