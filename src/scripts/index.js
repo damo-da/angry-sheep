@@ -7,6 +7,7 @@ import {collide} from './collision'
 import SideMenu from './SideMenu'
 import TopMenu from './TopMenu'
 import BottomMenu from './BottomMenu'
+import phaser from 'phaser';
 
 
 export default () => {
