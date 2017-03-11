@@ -15,8 +15,7 @@ export default class Sheep {
   }
 
   move() {
-    console.log('moving sheep');
-    this.col += this.speed * 0.01;
+    this.col += (this.speed )* 0.01;
 
     this.render();
 

@@ -1,4 +1,5 @@
 import Sheep from './Sheep';
+import C from './constants';
 
 export default class Player {
   constructor(side, game) {
@@ -47,6 +48,7 @@ export default class Player {
   }
 
   update() {
+
     this.sheep.forEach(s => s.move());
 
   }

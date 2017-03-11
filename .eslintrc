@@ -183,7 +183,8 @@
     "accessor-pairs": 0,
     "spaced-comment": 0,
     "prefer-const": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "space-before-keywords": 0
   },
   "extends": "airbnb/base"
 }
