@@ -1,14 +1,15 @@
 const defaults = {
   ASSETS_ROOT: '/src/assets/images/',
 
-  GAME_X: 1000,
-  GAME_Y: 700,
+  GAME_X: 900,
+  GAME_Y: 500,
 
   DEFAULT_MANA: 50,
+  SHEEP_ADD_INTERVAL: 1000,
 
   TOP_MENU: {
     MANA_WIDTH: 300,
-    HEIGHT: 100,
+    HEIGHT: 70,
     WIDTH: 500
   },
   BOTTOM_MENU: {
@@ -17,9 +18,8 @@ const defaults = {
     ITEM_SIZE: 60
   },
 
-  ROWS: 6,
-  MARGIN: 20,
-  SPRITE_HEIGHT: 100,
+  ROWS: 5,
+  MARGIN: 10,
 
   SHEEPS: {
     0: {STRENGTH: 0.4, WIDTH: 0.05, MANA: 10, SPEED: 1.0},
@@ -43,5 +43,7 @@ const defaults = {
 
   SHEEP_MOVE_CONST: 0.005
 };
+
+defaults.SPRITE_HEIGHT = (defaults.GAME_Y /defaults.ROWS)-defaults.MARGIN;
 
 export default defaults;

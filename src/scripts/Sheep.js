@@ -1,8 +1,11 @@
 import C from './constants';
 import {getGame} from './game';
+let _lastId = 0;
 
 export default class Sheep {
   constructor(index, row) {
+    this.id = ++_lastId;
+
     this.index = index;
     this.row = row;
     this.speed = C.SHEEPS[index].SPEED;
@@ -42,6 +45,7 @@ export default class Sheep {
   }
 
   kill(){
+    console.log('Killing sheep ', this);
     this.sprite.kill();
 
   }
