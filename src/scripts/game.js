@@ -43,6 +43,8 @@ const create = () => {
 
   });
 
+  game.sound.mute = C.AUDIO.MUTE;
+
   const music = game.add.audio('bg_music', C.AUDIO.BG_VOLUME, true);
   music.play();
 

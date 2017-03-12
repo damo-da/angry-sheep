@@ -45,8 +45,10 @@ const defaults = {
 
   AUDIO:{
     VOLUME: 0.05,
-    BG_VOLUME: 0.2
-  }
+    BG_VOLUME: 0.2,
+    MUTE: false
+  },
+
 };
 
 
