@@ -49,6 +49,11 @@ const defaults = {
     MUTE: false
   },
 
+  MAIN_MENU: {
+    BG_COLOR: 0x000000,
+    BORDER_COLOR: 0x333333
+  }
+
 };
 
 
@@ -77,8 +82,7 @@ export const updateWindowInfo = () => { //ran on the start of the game to initia
     if (scWidth > 1024){
       defaults.SIDE_MENU.WIDTH = 0.08 * scWidth;
       const expectedHeight = (defaults.GAME_Y / defaults.ROWS) - defaults.MARGIN
-      defaults.SIDE_MENU.ITEM_WIDTH = expectedHeight;
-      console.log(defaults.SIDE_MENU.ITEM_WIDTH);
+      defaults.SIDE_MENU.ITEM_WIDTH = expectedHeight < defaults.SIDE_MENU.WIDTH?expectedHeight: defaults.SIDE_MENU.WIDTH;
     }
 
     defaults.GAME_X = scWidth - defaults.SIDE_MENU.WIDTH * 2;

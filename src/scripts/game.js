@@ -25,6 +25,7 @@ const preload = () => {
   [
     ['arrow-right', 'arrow-right.png'],
     ['row-bg', 'road.jpg'],
+    ['game_start_btn', 'start_game.png'],
     ['selected-sheep', 'selected-sheep.gif']
   ].forEach(x => game.load.image(x[0], `${C.ASSETS_ROOT}images/${x[1]}`));
 

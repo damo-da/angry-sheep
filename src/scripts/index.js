@@ -1,13 +1,11 @@
 import C, {updateWindowInfo} from './constants';
-import _ from 'lodash';
 import {createGame, getGame} from './game';
-import {collide} from './collision'
 import * as elementActions from './elements';
-
-import phaser from 'phaser';
+import MainMenu from './MainMenu';
 
 
 export default () => {
+  const mainMenu = new MainMenu();
 
 
   const preload = () => {
@@ -17,11 +15,23 @@ export default () => {
   const create = () => {
     elementActions.create();
 
+    mainMenu.show((type, data) => {
+
+      switch (type){
+
+      }
+
+      mainMenu.hide();
+
+    });
   };
 
   const update = () => {
-    elementActions.update();
+    if (mainMenu.isShowing()){
 
+    }else{
+      elementActions.update();
+    }
 
   };
 
