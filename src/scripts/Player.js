@@ -77,7 +77,7 @@ export default class Player {
       if (s.col <= 0 && this.side == 'right') { //right sheep finished coming to left side
         this.score += 1;
 
-        game.add.audio('ship_completed_journey').play();
+        game.add.audio('sheep_completed_journey', C.AUDIO.VOLUME).play();
         s.kill();
 
         return false;
