@@ -13,14 +13,17 @@ let _preloadHook = () => {
 const preload = () => {
   _.range(6)
     .forEach((i) => {
-      game.load.image(`sheep_${i}`, `${C.ASSETS_ROOT}sheep_${i}.png`);
+      game.load.image(`sheep_${i}`, `${C.ASSETS_ROOT}images/sheep_${i}.png`);
+      game.load.audio(`sheep_${i}`, `${C.ASSETS_ROOT}audio/sheep${i}.mp3`);
     });
+  game.load.audio(`bg_music`, `${C.ASSETS_ROOT}audio/background.wav`);
+
 
   [
     ['arrow-right', 'arrow-right.png'],
     ['row-bg', 'road.jpg'],
     ['selected-sheep', 'selected-sheep.gif']
-  ].forEach(x => game.load.image(x[0], `${C.ASSETS_ROOT}${x[1]}`));
+  ].forEach(x => game.load.image(x[0], `${C.ASSETS_ROOT}images/${x[1]}`));
 
   _preloadHook();
 };
@@ -36,6 +39,9 @@ const create = () => {
     sprite.y = C.TOP_MENU.HEIGHT + C.SPRITE_HEIGHT * index + C.MARGIN * index;
 
   });
+
+  const music = game.add.audio('bg_music', C.AUDIO.BG_VOLUME, true);
+  music.play();
 
 
   _createHook();

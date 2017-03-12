@@ -1,11 +1,11 @@
 const defaults = {
-  ASSETS_ROOT: '/src/assets/images/',
+  ASSETS_ROOT: '/src/assets/',
 
   GAME_X: 900,
   GAME_Y: 500,
 
-  DEFAULT_MANA: 50,
-  SHEEP_ADD_INTERVAL: 1000,
+  DEFAULT_MANA: 80,
+  SHEEP_ADD_INTERVAL: 500,
 
   TOP_MENU: {
     MANA_WIDTH: 300,
@@ -41,7 +41,12 @@ const defaults = {
     FONT_SIZE: 20
   },
 
-  SHEEP_MOVE_CONST: 0.005
+  SHEEP_MOVE_CONST: 0.005,
+
+  AUDIO:{
+    VOLUME: 0.1,
+    BG_VOLUME: 0.2
+  }
 };
 
 

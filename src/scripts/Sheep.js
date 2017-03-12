@@ -41,6 +41,9 @@ export default class Sheep {
   }
 
   init() {
+    const game = getGame();
+    game.add.audio(`sheep_${this.index}`,C.AUDIO.VOLUME).play();
+
     this.render();
   }
 
@@ -49,4 +52,4 @@ export default class Sheep {
     this.sprite.kill();
 
   }
-}
+};

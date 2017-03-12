@@ -32,13 +32,14 @@ export default () => {
     topMenus.forEach(menu => menu.init());
     bottomMenus.forEach(menu => menu.init());
 
-    players[0].addSheep(new Sheep(0,0));
-    players[1].addSheep(new Sheep(1,0));
+    // players[0].addSheep(new Sheep(0,0));
+    // players[1].addSheep(new Sheep(1,0));
 
     setTimeout(() => {
-      players[0].addSheep(new Sheep(0,0));
+      // players[0].addSheep(new Sheep(0,0));
       // players[1].addSheep(new Sheep(0,0));
     }, 1500);
+
 
 
   };
