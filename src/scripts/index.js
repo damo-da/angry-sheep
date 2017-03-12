@@ -1,4 +1,4 @@
-import C from './constants';
+import C, {updateWindowInfo} from './constants';
 import Player from './Player';
 import Sheep from './Sheep';
 import _ from 'lodash';
@@ -57,5 +57,6 @@ export default () => {
   };
 
 
+  updateWindowInfo();
   createGame(preload, create, update);
 };

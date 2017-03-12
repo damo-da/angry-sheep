@@ -44,6 +44,42 @@ const defaults = {
   SHEEP_MOVE_CONST: 0.005
 };
 
-defaults.SPRITE_HEIGHT = (defaults.GAME_Y /defaults.ROWS)-defaults.MARGIN;
+
+const runUpdates = () => { //store 'cache'
+  defaults.SPRITE_HEIGHT = (defaults.GAME_Y /defaults.ROWS)-defaults.MARGIN;
+};
+
+export const updateWindowInfo = () => { //ran on the start of the game to initialize game information
+  if(!window){
+    console.log('No window element found. Using default configuration.');
+  }else {
+    const scWidth = window.innerWidth;
+    const scHeight = window.innerHeight;
+
+    defaults.MARGIN = 0.01 * scHeight;
+
+    if (scHeight < 600){
+      defaults.TOP_MENU.HEIGHT = 50;
+      defaults.BOTTOM_MENU.HEIGHT = 50;
+      defaults.BOTTOM_MENU.ITEM_SIZE = 40;
+
+    }
+
+    defaults.GAME_Y = scHeight - defaults.TOP_MENU.HEIGHT - defaults.BOTTOM_MENU.HEIGHT;
+
+    if (scWidth > 1024){
+      defaults.SIDE_MENU.WIDTH = 0.08 * scWidth;
+      const expectedHeight = (defaults.GAME_Y / defaults.ROWS) - defaults.MARGIN
+      defaults.SIDE_MENU.ITEM_WIDTH = expectedHeight;
+      console.log(defaults.SIDE_MENU.ITEM_WIDTH);
+    }
+
+    defaults.GAME_X = scWidth - defaults.SIDE_MENU.WIDTH * 2;
+
+  }
+
+  runUpdates();
+
+};
 
 export default defaults;

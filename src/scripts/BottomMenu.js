@@ -19,7 +19,9 @@ export default class BottomMenu {
     const game = getGame();
 
     if (!this._sprites.length) {
-      const y = C.GAME_Y + C.TOP_MENU.HEIGHT + 20;
+      const iconMarginY = (C.BOTTOM_MENU.HEIGHT - C.BOTTOM_MENU.ITEM_SIZE)/2.0;
+
+      const y = C.GAME_Y + C.TOP_MENU.HEIGHT + iconMarginY;
       const x = this.side == 'left' ? 40 : C.SIDE_MENU.WIDTH + C.GAME_X - C.BOTTOM_MENU.WIDTH;
 
       Object.keys(C.SHEEPS).forEach(index => {
@@ -49,9 +51,11 @@ export default class BottomMenu {
 
   update() {
     if (this._sprites) {
+      const iconMarginY = (C.BOTTOM_MENU.HEIGHT - C.BOTTOM_MENU.ITEM_SIZE)/2.0;
+
       const activeIndex = this._player.selectedSheepIndex;
       const x = this.side == 'left' ? 40 : C.SIDE_MENU.WIDTH + C.GAME_X - C.BOTTOM_MENU.WIDTH;
-      const y = C.GAME_Y + C.TOP_MENU.HEIGHT + 20;
+      const y = C.GAME_Y + C.TOP_MENU.HEIGHT + iconMarginY;
 
       this._selectedSheepSprite.x = x + activeIndex * C.BOTTOM_MENU.ITEM_SIZE;
       this._selectedSheepSprite.y = y;

@@ -23,11 +23,13 @@ export default class SideMenu {
 
     if (!this._rowSprites.length) {
       const height_incr = C.MARGIN + C.SPRITE_HEIGHT;
-      const x = this.side == 'left'?0:C.GAME_X+C.SIDE_MENU.WIDTH;
+      const itemMarginX =  (C.SIDE_MENU.WIDTH - C.SIDE_MENU.ITEM_WIDTH)/2.0;
+
+      const x = this.side == 'left'?itemMarginX:C.GAME_X+C.SIDE_MENU.WIDTH + itemMarginX;
 
       _.range(C.ROWS).forEach(rowIndex => {
         const sprite = game.add.sprite(x, C.TOP_MENU.HEIGHT + height_incr * rowIndex , 'arrow-right');
-        sprite.width = C.SIDE_MENU.WIDTH;
+        sprite.width = C.SIDE_MENU.ITEM_WIDTH;
         sprite.height = height_incr-C.MARGIN;
 
         if(this.side != 'left'){
