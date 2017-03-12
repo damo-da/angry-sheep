@@ -16,8 +16,11 @@ const preload = () => {
       game.load.image(`sheep_${i}`, `${C.ASSETS_ROOT}images/sheep_${i}.png`);
       game.load.audio(`sheep_${i}`, `${C.ASSETS_ROOT}audio/sheep${i}.mp3`);
     });
-  game.load.audio(`bg_music`, `${C.ASSETS_ROOT}audio/background.wav`);
 
+  [
+    ['bg_music', `background.wav`],
+    ['sheep_completed_journey', 'sheep-completed-journey.wav']
+  ].forEach(i => game.load.audio(i[0], `${C.ASSETS_ROOT}audio/${i[1]}`));
 
   [
     ['arrow-right', 'arrow-right.png'],

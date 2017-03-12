@@ -44,7 +44,7 @@ const defaults = {
   SHEEP_MOVE_CONST: 0.005,
 
   AUDIO:{
-    VOLUME: 0.1,
+    VOLUME: 0.05,
     BG_VOLUME: 0.2
   }
 };

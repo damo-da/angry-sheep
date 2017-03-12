@@ -1,6 +1,7 @@
 import Sheep from './Sheep';
 import C from './constants';
 // import Date from './data';
+import {getGame} from './game';
 import moment from 'moment';
 
 export default class Player {
@@ -70,17 +71,22 @@ export default class Player {
   }
 
   update() {
+  const game = getGame();
 
     this.sheep = this.sheep.filter((s) => {
       if (s.col <= 0 && this.side == 'right') { //right sheep finished coming to left side
         this.score += 1;
 
+        game.add.audio('ship_completed_journey').play();
         s.kill();
+
         return false;
       } else if (s.col >= 1 + s.width && this.side == 'left') { //left sheep finished going to right side
         this.score += 1;
 
+        game.add.audio('sheep_completed_journey', C.AUDIO.VOLUME).play();
         s.kill();
+
         return false;
       } else if (s.col < -s.width && this.side == 'left' && s.speed < 0) { // left sheep was pushed back by right side sheep
         s.kill();
